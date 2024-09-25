@@ -41,7 +41,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   buildDockerImage:
-    needs: sonarQubeAnalysis
+    needs: sonarcloud
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
