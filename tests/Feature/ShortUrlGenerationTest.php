@@ -1,11 +1,13 @@
 <?php
 
+const URL_API = '/api/urls';
+
 it('generates a short URL correctly', function () {
 
     $faker = app()->make(\Faker\Generator::class);
 
 
-    $response = $this->post('/api/urls', [
+    $response = $this->post(URL_API, [
         'original_url' => $faker->url,
         'title' => $faker->sentence
     ]);
@@ -26,12 +28,12 @@ it('generates unique short URLs for different long URLs', function () {
     
     $faker = app()->make(\Faker\Generator::class);
     
-    $response1 = $this->post('/api/urls', [
+    $response1 = $this->post(URL_API, [
         'original_url' => $faker->url,
         'title' => $faker->sentence
     ]);
 
-    $response2 = $this->post('/api/urls', [
+    $response2 = $this->post(URL_API, [
         'original_url' => $faker->url,
         'title' => $faker->sentence
     ]);
@@ -59,9 +61,9 @@ it('returns the same short URL for duplicate long URLs', function () {
         'title' => $title
     ];
 
-    $response1 = $this->post('/api/urls', $jsonBody);
+    $response1 = $this->post(URL_API, $jsonBody);
 
-    $response2 = $this->post('/api/urls', $jsonBody);
+    $response2 = $this->post(URL_API, $jsonBody);
     
     $response1->assertStatus(201);
 
@@ -76,7 +78,7 @@ it('returns the same short URL for duplicate long URLs', function () {
 
 
 it('fetches the list of urls successfully', function () {
-    $response = $this->get('/api/urls');
+    $response = $this->get(URL_API);
     
     $response->assertStatus(200);
 

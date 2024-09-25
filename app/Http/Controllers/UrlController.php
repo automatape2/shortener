@@ -24,8 +24,9 @@ class UrlController extends Controller
 
         $url = Url::where("original_url", $request->original_url)->first();
         
-        if( $url != null )
-            return $url; 
+        if($url != null) {
+            return $url;
+        }
         
         return Url::create([
             'title' => Str::ucfirst($request->title),
@@ -66,8 +67,9 @@ class UrlController extends Controller
     {
         $find = Url::where('shortener_url', $shortener_url)->first();
         
-        if($find == null)
+        if($find == null){
             throw new UrlNotFoundException();
+        }
 
 
         return redirect($find->original_url);

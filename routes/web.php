@@ -8,4 +8,3 @@ Route::get('/', function () {
 });
 
 Route::get('{shortener_url}', [UrlController::class, 'shortenLink'])->name('shortener-url');
- 
