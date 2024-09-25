@@ -1,66 +1,41 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 1. Generación de URLs cortas (Short URL Generation)
+### a. Generación correcta de la URL corta
+Descripción: Verificar que una URL larga sea correctamente convertida a una URL corta.
+Datos de entrada: URL larga válida (e.g. http:/`/example.com/very-long-url).
+Resultado esperado: Una URL corta válida (e.g. http://short.ly/abc123).
+### b. Generación única de URL corta
+Descripción: Asegurarse de que diferentes URLs largas generen diferentes URLs cortas.
+Datos de entrada: Varias URLs largas (e.g. http://example.com/page1 y http://example.com/page2).
+Resultado esperado: Cada URL larga debe generar una URL corta única.
+### c. Manejo de URLs repetidas
+Descripción: Asegurarse de que la misma URL larga genere la misma URL corta (si es parte del requerimiento).
+Datos de entrada: La misma URL larga ingresada varias veces (e.g. http://example.com/repeat).
+Resultado esperado: La misma URL corta debe generarse en cada intento.
+## 2. Expansión de URLs (URL Expansion)
+### a. Expansión correcta de una URL corta
+Descripción: Verificar que una URL corta se expanda correctamente a la URL larga original.
+Datos de entrada: URL corta válida (e.g. http://short.ly/abc123).
+Resultado esperado: La URL larga correspondiente (e.g. http://example.com/very-long-url).
+### b. Manejo de URLs no existentes
+Descripción: Asegurarse de que el sistema maneje correctamente las URLs cortas no existentes.
+Datos de entrada: URL corta inválida o inexistente.
+Resultado esperado: Un mensaje de error adecuado (e.g. "URL no encontrada" o código de error 404).
+## 3. Validación de URLs
+### a. URL larga inválida
+Descripción: Probar el comportamiento del sistema cuando se introduce una URL larga inválida.
+Datos de entrada: Una URL malformada (e.g. htp://invalid-url).
+Resultado esperado: El sistema debería rechazar la URL con un mensaje de error.
+## 4. Casos de prueba de límite
+### a. URL extremadamente larga
+Descripción: Probar el comportamiento del sistema con una URL que exceda los límites esperados.
+Datos de entrada: Una URL extremadamente larga (más de 2000 caracteres).
+Resultado esperado: El sistema debería manejarla o dar un mensaje de error adecuado.
+### b. URL vacía
+Descripción: Verificar el comportamiento del sistema al intentar acortar una URL vacía.
+Datos de entrada: URL vacía ("").
+Resultado esperado: Un mensaje de error indicando que la URL no puede estar vacía.
+## 5. Redirección
+### a. Redirección correcta de una URL corta
+Descripción: Probar que al visitar una URL corta, el usuario sea correctamente redirigido a la URL larga.
+Datos de entrada: URL corta válida (e.g. http://short.ly/abc123).
+Resultado esperado: El usuario debe ser redirigido a la URL larga correspondiente.
