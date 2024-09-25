@@ -20,7 +20,7 @@ class UrlFactory extends Factory
         return [
             'title' => $this->faker->title(),
             'original_url' => $this->faker->url,
-            'shortener_url' => Str::random(5), 
+            'shortener_url' => Str::random(5),
         ];
     }
 }
