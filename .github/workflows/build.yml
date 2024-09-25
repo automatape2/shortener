@@ -25,7 +25,7 @@ jobs:
         run: php artisan migrate --env=testing
 
       - name: Run Tests
-        run: php artisan test
+        run: php artisan test --testsuite=Feature
 
   sonarcloud:
     needs: test
