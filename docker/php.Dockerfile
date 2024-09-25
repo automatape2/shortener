@@ -1,5 +1,10 @@
 FROM php:8.2-fpm-alpine
 
+RUN addgroup -S nonroot \
+    && adduser -S nonroot -G nonroot
+
+USER nonroot
+
 COPY ./docker/php/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 COPY ./app /var/www/html/app
