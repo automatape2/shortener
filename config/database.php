@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Str;
 
-const LOCALHOST = "127.0.0.1";
+if (!defined('LOCALHOST')) {
+    define('LOCALHOST', '127.0.0.1');
+}
 
 return [
 

@@ -5,7 +5,9 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
 use Monolog\Processor\PsrLogMessageProcessor;
 
-const LARAVEL_LOGS = "logs/laravel.log";
+if (!defined('LARAVEL_LOGS')) {
+    define('LARAVEL_LOGS', 'logs/laravel.log');
+}
 
 return [
 
