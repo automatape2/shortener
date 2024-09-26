@@ -16,7 +16,6 @@ COPY ./resources /var/www/html/resources
 COPY ./routes /var/www/html/routes
 COPY ./storage /var/www/html/storage
 COPY ./tests /var/www/html/tests
-COPY ./vendor /var/www/html/vendor
 COPY ./composer.json /var/www/html/composer.json
 COPY ./composer.lock /var/www/html/composer.lock
 
