@@ -1,7 +1,10 @@
 FROM php:8.2-fpm-alpine
 
-RUN addgroup -S nonroot \
-    && adduser -S nonroot -G nonroot
+RUN addgroup -S nonroot && \
+    adduser -S nonroot -G nonroot && \
+    mkdir -p /var/www/html && \
+    docker-php-ext-install pdo pdo_mysql && \
+    chown -R nonroot:nonroot /var/www/html
 
 USER nonroot
 
@@ -19,6 +22,4 @@ COPY ./tests /var/www/html/tests
 COPY ./composer.json /var/www/html/composer.json
 COPY ./composer.lock /var/www/html/composer.lock
 
-RUN mkdir -p /var/www/html && \
-    docker-php-ext-install pdo pdo_mysql && \
-    chown -R laravel:laravel /var/www/html
+RUN 
