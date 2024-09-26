@@ -19,8 +19,6 @@ COPY ./tests /var/www/html/tests
 COPY ./composer.json /var/www/html/composer.json
 COPY ./composer.lock /var/www/html/composer.lock
 
-RUN addgroup -g 1000 laravel && \
-    adduser -G laravel -g laravel -s /bin/sh -D laravel && \
-    mkdir -p /var/www/html && \
+RUN mkdir -p /var/www/html && \
     docker-php-ext-install pdo pdo_mysql && \
     chown -R laravel:laravel /var/www/html
