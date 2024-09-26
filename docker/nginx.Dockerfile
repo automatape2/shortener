@@ -1,5 +1,9 @@
 FROM nginx:stable-alpine
 
-COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+RUN addgroup -S nonroot && \
+    adduser -S nonroot -G nonroot && \
+    mkdir -p /var/www/html
 
-RUN mkdir -p /var/www/html
+USER nonroot
+
+COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
