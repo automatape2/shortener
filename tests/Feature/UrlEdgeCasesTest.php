@@ -7,7 +7,7 @@ it('handles an extremely long URL', function () {
         'title' => 'Facebook'
     ]);
 
-    $response->assertStatus(200);
+    $response->assertStatus(422);
 
     $response->assertJsonStructure([
         'message',
